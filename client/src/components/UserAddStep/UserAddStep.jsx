@@ -63,7 +63,6 @@ const UserAddStep = React.memo(
         username: data.username.trim() || null,
       };
 
-      console.log(cleanData);
       if (!isEmail(cleanData.email)) {
         emailField.current.select();
         return;
@@ -83,7 +82,6 @@ const UserAddStep = React.memo(
         usernameField.current.select();
         return;
       }
-      console.log(cleanData);
       onCreate(cleanData);
     }, [onCreate, data]);
 

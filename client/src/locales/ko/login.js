@@ -17,6 +17,7 @@ export default {
 
     action: {
       logIn: '로그인',
+      SignIn: '회원가입',
     },
   },
 };
