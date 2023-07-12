@@ -13,9 +13,6 @@ import Background from '../Background';
 
 import styles from './Core.module.scss';
 
-import SignInContainer from '../../containers/SignInContainer';
-import { usePopup } from '../../lib/popup';
-
 const Core = React.memo(
   ({ isInitializing, isSocketDisconnected, currentModal, currentProject, currentBoard }) => {
     const [t] = useTranslation();
@@ -37,8 +34,6 @@ const Core = React.memo(
       document.title = title;
     }, [currentProject, currentBoard]);
 
-    const SignInPopupContainer = usePopup(SignInContainer);
-
     return (
       <>
         {isInitializing ? (
@@ -57,9 +52,6 @@ const Core = React.memo(
             {currentModal === ModalTypes.USERS && <UsersModalContainer />}
             {currentModal === ModalTypes.USER_SETTINGS && <UserSettingsModalContainer />}
             {currentModal === ModalTypes.PROJECT_ADD && <ProjectAddModalContainer />}
-            <SignInPopupContainer>
-              <Button positive content={t('action.addUser')} />
-            </SignInPopupContainer>
           </>
         )}
         {isSocketDisconnected && (

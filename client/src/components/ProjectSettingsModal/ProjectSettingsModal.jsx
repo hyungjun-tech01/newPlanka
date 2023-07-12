@@ -47,7 +47,7 @@ const ProjectSettingsModal = React.memo(
         render: () => <GeneralPane name={name} onUpdate={onUpdate} onDelete={onDelete} />,
       },
       {
-        menuItem: t('common.managers', {
+        menuItem: t('common.members', {
           context: 'title',
         }),
         render: () => (

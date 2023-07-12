@@ -115,12 +115,6 @@ const Login = React.memo(
     }, [focusPasswordFieldState]);
 
     const SignInPopupContainer = usePopup(SignInContainer);
-    const [signInModal, setSignInModal] = useState(false);
-
-    const onSignIn = () => {
-      console.log('signIn');
-      setSignInModal(true);
-    };
 
     return (
       <div className={classNames(styles.wrapper, styles.fullHeight)}>
@@ -183,16 +177,20 @@ const Login = React.memo(
                           loading={isSubmitting}
                           disabled={isSubmitting}
                         />
-                        <Form.Button
-                          onClick={onSignIn}
-                          size="large"
-                          icon="down arrow"
-                          labelPosition="right"
-                          content={t('action.SignIn')}
-                          floated="right"
-                          loading={isSubmitting}
-                          disabled={isSubmitting}
-                        />
+                        <div className={styles.buttonWrapper}>
+                          <SignInPopupContainer>
+                            <Form.Button
+                              primary
+                              size="large"
+                              icon="right arrow"
+                              labelPosition="right"
+                              floated="right"
+                              content={t('action.SignIn')}
+                              loading={isSubmitting}
+                              disabled={isSubmitting}
+                            />
+                          </SignInPopupContainer>
+                        </div>
                       </div>
                     </Form>
                   </div>
