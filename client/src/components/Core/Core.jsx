@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation, Trans } from 'react-i18next';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Button } from 'semantic-ui-react';
 
 import ModalTypes from '../../constants/ModalTypes';
 import FixedContainer from '../../containers/FixedContainer';
@@ -12,6 +12,9 @@ import ProjectAddModalContainer from '../../containers/ProjectAddModalContainer'
 import Background from '../Background';
 
 import styles from './Core.module.scss';
+
+import SignInContainer from '../../containers/SignInContainer';
+import { usePopup } from '../../lib/popup';
 
 const Core = React.memo(
   ({ isInitializing, isSocketDisconnected, currentModal, currentProject, currentBoard }) => {
@@ -34,6 +37,8 @@ const Core = React.memo(
       document.title = title;
     }, [currentProject, currentBoard]);
 
+    const SignInPopupContainer = usePopup(SignInContainer);
+
     return (
       <>
         {isInitializing ? (
@@ -52,6 +57,9 @@ const Core = React.memo(
             {currentModal === ModalTypes.USERS && <UsersModalContainer />}
             {currentModal === ModalTypes.USER_SETTINGS && <UserSettingsModalContainer />}
             {currentModal === ModalTypes.PROJECT_ADD && <ProjectAddModalContainer />}
+            <SignInPopupContainer>
+              <Button positive content={t('action.addUser')} />
+            </SignInPopupContainer>
           </>
         )}
         {isSocketDisconnected && (

@@ -12,7 +12,7 @@ import { isUsername } from '../../utils/validator';
 
 import styles from './Login.module.scss';
 
-import UserAddStepContainer from '../../containers/UserAddStepContainer';
+import SignInContainer from '../../containers/SignInContainer';
 import UserAddStep from '../UserAddStep';
 import { usePopup } from '../../lib/popup';
 
@@ -114,7 +114,7 @@ const Login = React.memo(
       passwordField.current.focus();
     }, [focusPasswordFieldState]);
 
-    const UserAddPopupContainer = usePopup(UserAddStepContainer);
+    const SignInPopupContainer = usePopup(SignInContainer);
     const [signInModal, setSignInModal] = useState(false);
 
     const onSignIn = () => {
@@ -123,106 +123,103 @@ const Login = React.memo(
     };
 
     return (
-      <>
-        <div className={classNames(styles.wrapper, styles.fullHeight)}>
-          <Grid verticalAlign="middle" className={styles.fullHeightPaddingFix}>
-            <Grid.Column widescreen={4} largeScreen={5} computer={6} tablet={16} mobile={16}>
-              <Grid verticalAlign="middle" className={styles.fullHeightPaddingFix}>
-                <Grid.Column>
-                  <div className={styles.loginWrapper}>
-                    <Header
-                      as="h1"
-                      textAlign="center"
-                      content={t('common.logInToPlanka')}
-                      className={styles.formTitle}
-                    />
-                    <div>
-                      {message && (
-                        <Message
-                          // eslint-disable-next-line react/jsx-props-no-spreading
-                          {...{
-                            [message.type]: true,
-                          }}
-                          visible
-                          content={t(message.content)}
-                          onDismiss={onMessageDismiss}
+      <div className={classNames(styles.wrapper, styles.fullHeight)}>
+        <Grid verticalAlign="middle" className={styles.fullHeightPaddingFix}>
+          <Grid.Column widescreen={4} largeScreen={5} computer={6} tablet={16} mobile={16}>
+            <Grid verticalAlign="middle" className={styles.fullHeightPaddingFix}>
+              <Grid.Column>
+                <div className={styles.loginWrapper}>
+                  <Header
+                    as="h1"
+                    textAlign="center"
+                    content={t('common.logInToPlanka')}
+                    className={styles.formTitle}
+                  />
+                  <div>
+                    {message && (
+                      <Message
+                        // eslint-disable-next-line react/jsx-props-no-spreading
+                        {...{
+                          [message.type]: true,
+                        }}
+                        visible
+                        content={t(message.content)}
+                        onDismiss={onMessageDismiss}
+                      />
+                    )}
+                    <Form size="large" onSubmit={handleSubmit}>
+                      <div className={styles.inputWrapper}>
+                        <div className={styles.inputLabel}>{t('common.emailOrUsername')}</div>
+                        <Input
+                          fluid
+                          ref={emailOrUsernameField}
+                          name="emailOrUsername"
+                          value={data.emailOrUsername}
+                          readOnly={isSubmitting}
+                          className={styles.input}
+                          onChange={handleFieldChange}
                         />
-                      )}
-                      <Form size="large" onSubmit={handleSubmit}>
-                        <div className={styles.inputWrapper}>
-                          <div className={styles.inputLabel}>{t('common.emailOrUsername')}</div>
-                          <Input
-                            fluid
-                            ref={emailOrUsernameField}
-                            name="emailOrUsername"
-                            value={data.emailOrUsername}
-                            readOnly={isSubmitting}
-                            className={styles.input}
-                            onChange={handleFieldChange}
-                          />
-                        </div>
-                        <div className={styles.inputWrapper}>
-                          <div className={styles.inputLabel}>{t('common.password')}</div>
-                          <Input.Password
-                            fluid
-                            ref={passwordField}
-                            name="password"
-                            value={data.password}
-                            readOnly={isSubmitting}
-                            className={styles.input}
-                            onChange={handleFieldChange}
-                          />
-                        </div>
-                        <div className={styles.buttonWrapper}>
-                          <Form.Button
-                            primary
-                            size="large"
-                            icon="right arrow"
-                            labelPosition="right"
-                            content={t('action.logIn')}
-                            floated="right"
-                            loading={isSubmitting}
-                            disabled={isSubmitting}
-                          />
-                          <Form.Button
-                            onClick={onSignIn}
-                            size="large"
-                            icon="down arrow"
-                            labelPosition="right"
-                            content={t('action.SignIn')}
-                            floated="right"
-                            loading={isSubmitting}
-                            disabled={isSubmitting}
-                          />
-                        </div>
-                      </Form>
-                    </div>
+                      </div>
+                      <div className={styles.inputWrapper}>
+                        <div className={styles.inputLabel}>{t('common.password')}</div>
+                        <Input.Password
+                          fluid
+                          ref={passwordField}
+                          name="password"
+                          value={data.password}
+                          readOnly={isSubmitting}
+                          className={styles.input}
+                          onChange={handleFieldChange}
+                        />
+                      </div>
+                      <div className={styles.buttonWrapper}>
+                        <Form.Button
+                          primary
+                          size="large"
+                          icon="right arrow"
+                          labelPosition="right"
+                          content={t('action.logIn')}
+                          floated="right"
+                          loading={isSubmitting}
+                          disabled={isSubmitting}
+                        />
+                        <Form.Button
+                          onClick={onSignIn}
+                          size="large"
+                          icon="down arrow"
+                          labelPosition="right"
+                          content={t('action.SignIn')}
+                          floated="right"
+                          loading={isSubmitting}
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                    </Form>
                   </div>
-                </Grid.Column>
-              </Grid>
-            </Grid.Column>
-            <Grid.Column
-              widescreen={12}
-              largeScreen={11}
-              computer={10}
-              only="computer"
-              className={classNames(styles.cover, styles.fullHeight)}
-            >
-              <div className={styles.descriptionWrapperOverlay} />
-              <div className={styles.descriptionWrapper}>
-                <Header inverted as="h1" content="Planka" className={styles.descriptionTitle} />
-                <Header
-                  inverted
-                  as="h2"
-                  content={t('common.projectManagement')}
-                  className={styles.descriptionSubtitle}
-                />
-              </div>
-            </Grid.Column>
-          </Grid>
-        </div>
-        <UserAddStep />
-      </>
+                </div>
+              </Grid.Column>
+            </Grid>
+          </Grid.Column>
+          <Grid.Column
+            widescreen={12}
+            largeScreen={11}
+            computer={10}
+            only="computer"
+            className={classNames(styles.cover, styles.fullHeight)}
+          >
+            <div className={styles.descriptionWrapperOverlay} />
+            <div className={styles.descriptionWrapper}>
+              <Header inverted as="h1" content="Planka" className={styles.descriptionTitle} />
+              <Header
+                inverted
+                as="h2"
+                content={t('common.projectManagement')}
+                className={styles.descriptionSubtitle}
+              />
+            </div>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   },
 );
