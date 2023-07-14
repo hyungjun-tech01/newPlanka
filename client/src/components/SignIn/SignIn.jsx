@@ -82,6 +82,8 @@ const SignIn = React.memo(
         usernameField.current.select();
         return;
       }
+
+      console.log('onCreate', cleanData);
       onCreate(cleanData);
     }, [onCreate, data]);
 
@@ -111,7 +113,6 @@ const SignIn = React.memo(
       }
     }, [isSubmitting, wasSubmitting, error, onClose]);
 
-    console.log(`UserAdd CHeck`);
     return (
       <>
         <Popup.Header>
@@ -181,7 +182,7 @@ const SignIn = React.memo(
             />
             <Button
               positive
-              content={t('action.addUser')}
+              content={t('action.SignIn')}
               loading={isSubmitting}
               disabled={isSubmitting}
             />

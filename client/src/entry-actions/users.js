@@ -1,11 +1,14 @@
 import EntryActionTypes from '../constants/EntryActionTypes';
 
-const createUser = (data) => ({
-  type: EntryActionTypes.USER_CREATE,
-  payload: {
-    data,
-  },
-});
+const createUser = (data) => {
+  console.log('createUser entry-actions', data);
+  return {
+    type: EntryActionTypes.USER_CREATE,
+    payload: {
+      data,
+    },
+  };
+};
 
 const handleUserCreate = (user) => ({
   type: EntryActionTypes.USER_CREATE_HANDLE,

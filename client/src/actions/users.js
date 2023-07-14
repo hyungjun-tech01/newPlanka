@@ -1,11 +1,14 @@
 import ActionTypes from '../constants/ActionTypes';
 
-const createUser = (data) => ({
-  type: ActionTypes.USER_CREATE,
-  payload: {
-    data,
-  },
-});
+const createUser = (data) => {
+  console.log('createUser actions', data);
+  return {
+    type: ActionTypes.USER_CREATE,
+    payload: {
+      data,
+    },
+  };
+};
 
 createUser.success = (user) => ({
   type: ActionTypes.USER_CREATE__SUCCESS,

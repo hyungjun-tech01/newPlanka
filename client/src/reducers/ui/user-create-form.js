@@ -14,6 +14,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.USER_CREATE:
+      console.log('reducer', payload);
       return {
         ...state,
         data: {

@@ -13,6 +13,9 @@ import Background from '../Background';
 
 import styles from './Core.module.scss';
 
+import SignInContainer from '../../containers/SignInContainer';
+import { usePopup } from '../../lib/popup';
+
 const Core = React.memo(
   ({ isInitializing, isSocketDisconnected, currentModal, currentProject, currentBoard }) => {
     const [t] = useTranslation();
@@ -34,6 +37,7 @@ const Core = React.memo(
       document.title = title;
     }, [currentProject, currentBoard]);
 
+    const SignInPopupContainer = usePopup(SignInContainer);
     return (
       <>
         {isInitializing ? (
@@ -66,6 +70,18 @@ const Core = React.memo(
             </div>
           </div>
         )}
+        <div className={styles.buttonWrapper}>
+          <SignInPopupContainer>
+            <Button
+              primary
+              size="large"
+              icon="right arrow"
+              labelPosition="right"
+              floated="right"
+              content={t('action.SignIn')}
+            />
+          </SignInPopupContainer>
+        </div>
       </>
     );
   },

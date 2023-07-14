@@ -1,9 +1,9 @@
 import isEmail from 'validator/lib/isEmail';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Form, Grid, Header, Message, Button, Modal } from 'semantic-ui-react';
+import { Form, Grid, Header, Message } from 'semantic-ui-react';
 import { useDidUpdate, usePrevious, useToggle } from '../../lib/hooks';
 import { Input } from '../../lib/custom-ui';
 
@@ -13,7 +13,6 @@ import { isUsername } from '../../utils/validator';
 import styles from './Login.module.scss';
 
 import SignInContainer from '../../containers/SignInContainer';
-import UserAddStep from '../UserAddStep';
 import { usePopup } from '../../lib/popup';
 
 const createMessage = (error) => {

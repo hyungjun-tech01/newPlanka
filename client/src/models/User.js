@@ -92,6 +92,7 @@ export default class extends BaseModel {
       case ActionTypes.USER_CREATE__SUCCESS:
       case ActionTypes.USER_CREATE_HANDLE:
       case ActionTypes.USER_UPDATE__SUCCESS:
+        console.log('reducer  User.js');
         User.upsert(payload.user);
 
         break;

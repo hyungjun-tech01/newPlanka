@@ -8,6 +8,7 @@ import api from '../../../api';
 import { setAccessToken } from '../../../utils/access-token-storage';
 
 export function* createUser(data) {
+  console.log('servie createuser');
   yield put(actions.createUser(data));
 
   let user;

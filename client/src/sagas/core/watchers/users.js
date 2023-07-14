@@ -4,6 +4,7 @@ import services from '../services';
 import EntryActionTypes from '../../../constants/EntryActionTypes';
 
 export default function* usersWatchers() {
+  console.log('userswatcher');
   yield all([
     takeEvery(EntryActionTypes.USER_CREATE, ({ payload: { data } }) => services.createUser(data)),
     takeEvery(EntryActionTypes.USER_CREATE_HANDLE, ({ payload: { user } }) =>
