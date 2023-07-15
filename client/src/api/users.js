@@ -7,8 +7,10 @@ const getUsers = (headers) => socket.get('/users', undefined, headers);
 
 const createUser = (data, headers) => {
   console.log('socket post');
-  socket.post('/users', data, headers);
+  return socket.post('/users', data, headers);
 };
+
+// const createUser = (data, headers) => socket.post('/users', data, headers);
 
 const getUser = (id, headers) => socket.get(`/users/${id}`, undefined, headers);
 

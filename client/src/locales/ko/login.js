@@ -13,6 +13,7 @@ export default {
       projectManagement: '프로젝트 관리',
       serverConnectionFailed: '서버 연결 실패',
       unknownError: '알 수 없는 오류가 발생하였습니다, 나중에 다시 시도하세요.',
+      SignIn: '가입',
     },
 
     action: {

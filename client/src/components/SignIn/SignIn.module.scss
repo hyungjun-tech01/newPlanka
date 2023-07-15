@@ -9,4 +9,17 @@
     font-weight: bold;
     padding-bottom: 6px;
   }
+
+  /* Modal */
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 80vh;
+  }
+
+  .modal {
+    width: 100vw;
+  }
 }

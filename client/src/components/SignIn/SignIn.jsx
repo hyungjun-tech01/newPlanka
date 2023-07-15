@@ -114,81 +114,83 @@ const SignIn = React.memo(
     }, [isSubmitting, wasSubmitting, error, onClose]);
 
     return (
-      <>
-        <Popup.Header>
-          {t('common.addUser', {
-            context: 'title',
-          })}
-        </Popup.Header>
-        <Popup.Content>
-          {message && (
-            <Message
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              {...{
-                [message.type]: true,
-              }}
-              visible
-              content={t(message.content)}
-              onDismiss={onMessageDismiss}
-            />
-          )}
-          <Form onSubmit={handleSubmit}>
-            <div className={styles.text}>{t('common.email')}</div>
-            <Input
-              fluid
-              ref={emailField}
-              name="email"
-              value={data.email}
-              readOnly={isSubmitting}
-              className={styles.field}
-              onChange={handleFieldChange}
-            />
-            <div className={styles.text}>{t('common.password')}</div>
-            <Input.Password
-              withStrengthBar
-              fluid
-              ref={passwordField}
-              name="password"
-              value={data.password}
-              readOnly={isSubmitting}
-              className={styles.field}
-              onChange={handleFieldChange}
-            />
-            <div className={styles.text}>{t('common.name')}</div>
-            <Input
-              fluid
-              ref={nameField}
-              name="name"
-              value={data.name}
-              readOnly={isSubmitting}
-              className={styles.field}
-              onChange={handleFieldChange}
-            />
-            <div className={styles.text}>
-              {t('common.username')} (
-              {t('common.optional', {
-                context: 'inline',
-              })}
-              )
-            </div>
-            <Input
-              fluid
-              ref={usernameField}
-              name="username"
-              value={data.username}
-              readOnly={isSubmitting}
-              className={styles.field}
-              onChange={handleFieldChange}
-            />
-            <Button
-              positive
-              content={t('action.SignIn')}
-              loading={isSubmitting}
-              disabled={isSubmitting}
-            />
-          </Form>
-        </Popup.Content>
-      </>
+      <div className={styles.overlay}>
+        <div className={styles.modal}>
+          <Popup.Header>
+            {t('common.SignIn', {
+              context: 'title',
+            })}
+          </Popup.Header>
+          <Popup.Content>
+            {message && (
+              <Message
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                {...{
+                  [message.type]: true,
+                }}
+                visible
+                content={t(message.content)}
+                onDismiss={onMessageDismiss}
+              />
+            )}
+            <Form onSubmit={handleSubmit}>
+              <div className={styles.text}>{t('common.email')}</div>
+              <Input
+                fluid
+                ref={emailField}
+                name="email"
+                value={data.email}
+                readOnly={isSubmitting}
+                className={styles.field}
+                onChange={handleFieldChange}
+              />
+              <div className={styles.text}>{t('common.password')}</div>
+              <Input.Password
+                withStrengthBar
+                fluid
+                ref={passwordField}
+                name="password"
+                value={data.password}
+                readOnly={isSubmitting}
+                className={styles.field}
+                onChange={handleFieldChange}
+              />
+              <div className={styles.text}>{t('common.name')}</div>
+              <Input
+                fluid
+                ref={nameField}
+                name="name"
+                value={data.name}
+                readOnly={isSubmitting}
+                className={styles.field}
+                onChange={handleFieldChange}
+              />
+              <div className={styles.text}>
+                {t('common.username')} (
+                {t('common.optional', {
+                  context: 'inline',
+                })}
+                )
+              </div>
+              <Input
+                fluid
+                ref={usernameField}
+                name="username"
+                value={data.username}
+                readOnly={isSubmitting}
+                className={styles.field}
+                onChange={handleFieldChange}
+              />
+              <Button
+                positive
+                content={t('action.SignIn')}
+                loading={isSubmitting}
+                disabled={isSubmitting}
+              />
+            </Form>
+          </Popup.Content>
+        </div>
+      </div>
     );
   },
 );

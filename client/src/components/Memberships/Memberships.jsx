@@ -33,36 +33,35 @@ const Memberships = React.memo(
     const ActionsPopup = usePopup(ActionsStep);
 
     return (
-      <>
-        <span className={styles.users}>
-          {items.map((item) => (
-            <span key={item.id} className={styles.user}>
-              <ActionsPopup
-                membership={item}
-                permissionsSelectStep={permissionsSelectStep}
-                leaveButtonContent={leaveButtonContent}
-                leaveConfirmationTitle={leaveConfirmationTitle}
-                leaveConfirmationContent={leaveConfirmationContent}
-                leaveConfirmationButtonContent={leaveConfirmationButtonContent}
-                deleteButtonContent={deleteButtonContent}
-                deleteConfirmationTitle={deleteConfirmationTitle}
-                deleteConfirmationContent={deleteConfirmationContent}
-                deleteConfirmationButtonContent={deleteConfirmationButtonContent}
-                canEdit={canEdit}
-                canLeave={items.length > 1 || canLeaveIfLast}
-                onUpdate={(data) => onUpdate(item.id, data)}
-                onDelete={() => onDelete(item.id)}
-              >
-                <User
-                  name={item.user.name}
-                  avatarUrl={item.user.avatarUrl}
-                  size="large"
-                  isDisabled={!item.isPersisted}
-                />
-              </ActionsPopup>
-            </span>
-          ))}
-        </span>
+      <span className={styles.users}>
+        {items.map((item) => (
+          <span key={item.id} className={styles.user}>
+            <ActionsPopup
+              membership={item}
+              permissionsSelectStep={permissionsSelectStep}
+              leaveButtonContent={leaveButtonContent}
+              leaveConfirmationTitle={leaveConfirmationTitle}
+              leaveConfirmationContent={leaveConfirmationContent}
+              leaveConfirmationButtonContent={leaveConfirmationButtonContent}
+              deleteButtonContent={deleteButtonContent}
+              deleteConfirmationTitle={deleteConfirmationTitle}
+              deleteConfirmationContent={deleteConfirmationContent}
+              deleteConfirmationButtonContent={deleteConfirmationButtonContent}
+              canEdit={canEdit}
+              canLeave={items.length > 1 || canLeaveIfLast}
+              onUpdate={(data) => onUpdate(item.id, data)}
+              onDelete={() => onDelete(item.id)}
+            >
+              <User
+                name={item.user.name}
+                avatarUrl={item.user.avatarUrl}
+                size="large"
+                isDisabled={!item.isPersisted}
+              />
+            </ActionsPopup>
+            {item.user.name}
+          </span>
+        ))}
         {canEdit && (
           <AddPopup
             users={allUsers}
@@ -74,7 +73,7 @@ const Memberships = React.memo(
             <Button icon="add user" className={styles.addUser} />
           </AddPopup>
         )}
-      </>
+      </span>
     );
   },
 );
