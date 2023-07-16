@@ -108,6 +108,8 @@ module.exports = {
       request: this.req,
     });
 
+    console.log('boards.create', board, boardMembership);
+
     return {
       item: board,
       included: {

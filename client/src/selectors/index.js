@@ -12,6 +12,7 @@ import lists from './lists';
 import cards from './cards';
 import tasks from './tasks';
 import attachments from './attachments';
+import listMemberships from './list-memberships';
 
 export default {
   ...router,
@@ -28,4 +29,5 @@ export default {
   ...cards,
   ...tasks,
   ...attachments,
+  ...listMemberships,
 };

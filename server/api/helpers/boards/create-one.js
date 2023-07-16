@@ -56,6 +56,7 @@ module.exports = {
     const projectManagerUserIds = await sails.helpers.projects.getManagerUserIds(values.project.id);
     const boards = await sails.helpers.projects.getBoards(values.project.id);
 
+    console.log('create one with project manager user id', projectManagerUserIds);
     const { position, repositions } = sails.helpers.utils.insertToPositionables(
       values.position,
       boards,
@@ -83,11 +84,14 @@ module.exports = {
       });
     });
 
+    console.log('create on with ', values)
     const board = await Board.create({
       ...values,
       position,
       projectId: values.project.id,
     }).fetch();
+
+    console.log('create on with board', board);
 
     if (inputs.import && inputs.import.type === Board.ImportTypes.TRELLO) {
       await sails.helpers.boards.importFromTrello(inputs.user, board, inputs.import.board);

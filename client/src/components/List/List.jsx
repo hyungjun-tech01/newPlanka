@@ -12,6 +12,7 @@ import NameEdit from './NameEdit';
 import CardAdd from './CardAdd';
 import ActionsStep from './ActionsStep';
 import { ReactComponent as PlusMathIcon } from '../../assets/images/plus-math-icon.svg';
+import ListActionsContainer from '../../containers/ListActionsContainer';
 
 import styles from './List.module.scss';
 
@@ -121,6 +122,7 @@ const List = React.memo(
                   </ActionsPopup>
                 )}
               </div>
+              <ListActionsContainer />
               <div
                 ref={listWrapper}
                 className={classNames(
