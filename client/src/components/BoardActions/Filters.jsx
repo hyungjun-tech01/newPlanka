@@ -14,8 +14,10 @@ const Filters = React.memo(
   ({
     users,
     labels,
+    filterStatus,
     allBoardMemberships,
     allLabels,
+    allStatus,
     canEdit,
     onUserAdd,
     onUserRemove,
@@ -100,6 +102,39 @@ const Filters = React.memo(
             </span>
           ))}
         </span>
+        {/* hjkim add */}
+        <span className={styles.filter}>
+          <LabelsPopup
+            items={allStatus}
+            currentIds={filterStatus.map((status) => status.id)}
+            title="Status"
+            canEdit={canEdit}
+            onSelect={onLabelAdd}
+            onDeselect={onLabelRemove}
+            /* onCreate={onLabelCreate} */
+            onUpdate={onLabelUpdate}
+            onMove={onLabelMove}
+            onDelete={onLabelDelete}
+          >
+            <button type="button" className={styles.filterButton}>
+              <span className={styles.filterTitle}>{`${t('Status')}:`}</span>
+              {filterStatus.length === 0 && (
+                <span className={styles.filterLabel}>{t('common.all')}</span>
+              )}
+            </button>
+          </LabelsPopup>
+          {filterStatus.map((status) => (
+            <span key={status.id} className={styles.filterItem}>
+              <Label
+                name={status.name}
+                color={status.color}
+                size="small"
+                onClick={() => handleRemoveLabelClick(status.id)}
+              />
+            </span>
+          ))}
+        </span>
+        {/* hjkim add */}
       </>
     );
   },
@@ -109,8 +144,10 @@ Filters.propTypes = {
   /* eslint-disable react/forbid-prop-types */
   users: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired,
+  filterStatus: PropTypes.array.isRequired,
   allBoardMemberships: PropTypes.array.isRequired,
   allLabels: PropTypes.array.isRequired,
+  allStatus: PropTypes.array.isRequired,
   /* eslint-enable react/forbid-prop-types */
   canEdit: PropTypes.bool.isRequired,
   onUserAdd: PropTypes.func.isRequired,

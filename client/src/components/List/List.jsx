@@ -122,7 +122,7 @@ const List = React.memo(
                   </ActionsPopup>
                 )}
               </div>
-              <ListActionsContainer />
+              {/* 리스트 멤버는 당분간 보류 <ListActionsContainer /> */}
               <div
                 ref={listWrapper}
                 className={classNames(

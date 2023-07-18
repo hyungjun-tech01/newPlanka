@@ -11,8 +11,10 @@ const BoardActions = React.memo(
   ({
     memberships,
     labels,
+    allStatus,
     filterUsers,
     filterLabels,
+    filterStatus,
     allUsers,
     canEdit,
     canEditMemberships,
@@ -46,8 +48,10 @@ const BoardActions = React.memo(
             <Filters
               users={filterUsers}
               labels={filterLabels}
+              allStatus={allStatus}
               allBoardMemberships={memberships}
               allLabels={labels}
+              filterStatus={filterStatus}
               canEdit={canEdit}
               onUserAdd={onUserToFilterAdd}
               onUserRemove={onUserFromFilterRemove}
@@ -69,8 +73,10 @@ BoardActions.propTypes = {
   /* eslint-disable react/forbid-prop-types */
   memberships: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired,
+  allStatus: PropTypes.array.isRequired,
   filterUsers: PropTypes.array.isRequired,
   filterLabels: PropTypes.array.isRequired,
+  filterStatus: PropTypes.array.isRequired,
   allUsers: PropTypes.array.isRequired,
   /* eslint-enable react/forbid-prop-types */
   canEdit: PropTypes.bool.isRequired,

@@ -14,6 +14,13 @@ const mapStateToProps = (state) => {
   const filterUsers = selectors.selectFilterUsersForCurrentBoard(state);
   const filterLabels = selectors.selectFilterLabelsForCurrentBoard(state);
   const currentUserMembership = selectors.selectCurrentUserMembershipForCurrentBoard(state);
+  // hjkim add status 추가 '대기','진행','완료'
+  const allStatus = [
+    { id: 1, name: '대기', color: '#6b808c' },
+    { id: 2, name: '대기', color: '#6b808c' },
+    { id: 3, name: '대기', color: '#6b808c' },
+  ];
+  const filterStatus = [{ id: 1, name: '대기', color: '#6b808c' }];
 
   const isCurrentUserEditor =
     !!currentUserMembership && currentUserMembership.role === BoardMembershipRoles.EDITOR;
@@ -23,7 +30,9 @@ const mapStateToProps = (state) => {
     labels,
     filterUsers,
     filterLabels,
+    filterStatus,
     allUsers,
+    allStatus,
     canEdit: isCurrentUserEditor,
     canEditMemberships: isCurrentUserManager,
   };
