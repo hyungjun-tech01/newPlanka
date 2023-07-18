@@ -102,7 +102,7 @@ const Filters = React.memo(
             </span>
           ))}
         </span>
-        {/* hjkim add */}
+        {/* hjkim add
         <span className={styles.filter}>
           <LabelsPopup
             items={allStatus}
@@ -111,7 +111,7 @@ const Filters = React.memo(
             canEdit={canEdit}
             onSelect={onLabelAdd}
             onDeselect={onLabelRemove}
-            /* onCreate={onLabelCreate} */
+            onCreate={onLabelCreate}
             onUpdate={onLabelUpdate}
             onMove={onLabelMove}
             onDelete={onLabelDelete}
@@ -134,7 +134,7 @@ const Filters = React.memo(
             </span>
           ))}
         </span>
-        {/* hjkim add */}
+        hjkim add */}
       </>
     );
   },
