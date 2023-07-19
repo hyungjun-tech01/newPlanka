@@ -11,6 +11,7 @@ export function* addStatusToBoardFilter(id, boardId) {
 }
 
 export function* addStatusToFilterInCurrentBoard(id) {
+  console.log('addStatusToFilterInCurretBoard', id);
   const { boardId } = yield select(selectors.selectPath);
 
   yield call(addStatusToBoardFilter, id, boardId);

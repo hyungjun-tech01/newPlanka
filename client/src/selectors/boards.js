@@ -175,6 +175,24 @@ export const selectFilterLabelsForCurrentBoard = createSelector(
   },
 );
 
+export const selectFilterStausForCurrentBoard = createSelector(
+  orm,
+  (state) => selectPath(state).boardId,
+  ({ Board }, id) => {
+    if (!id) {
+      return id;
+    }
+
+    const boardModel = Board.withId(id);
+
+    if (!boardModel) {
+      return boardModel;
+    }
+
+    return boardModel.filterStatus.toRefArray();
+  },
+);
+
 export const selectIsBoardWithIdExists = createSelector(
   orm,
   (_, id) => id,
@@ -191,5 +209,6 @@ export default {
   selectListIdsForCurrentBoard,
   selectFilterUsersForCurrentBoard,
   selectFilterLabelsForCurrentBoard,
+  selectFilterStausForCurrentBoard,
   selectIsBoardWithIdExists,
 };

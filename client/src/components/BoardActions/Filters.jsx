@@ -45,6 +45,12 @@ const Filters = React.memo(
       },
       [onLabelRemove],
     );
+    const handleRemoveStatusClick = useCallback(
+      (id) => {
+        onStatusRemove(id);
+      },
+      [onStatusRemove],
+    );
 
     const BoardMembershipsPopup = usePopup(BoardMembershipsStep);
     const LabelsPopup = usePopup(LabelsStep);
@@ -110,7 +116,7 @@ const Filters = React.memo(
             items={allStatus}
             currentIds={filterStatus.map((status) => status.id)}
             title="Status"
-            canEdit={false}
+            canEdit={canEdit}
             onSelect={onStatusAdd}
             onDeselect={onStatusRemove}
             onCreate={onLabelCreate}
@@ -131,7 +137,7 @@ const Filters = React.memo(
                 name={status.name}
                 color={status.color}
                 size="small"
-                onClick={() => handleRemoveLabelClick(status.id)}
+                onClick={() => handleRemoveStatusClick(status.id)}
               />
             </span>
           ))}
