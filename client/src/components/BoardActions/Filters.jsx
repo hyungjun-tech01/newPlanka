@@ -23,6 +23,8 @@ const Filters = React.memo(
     onUserRemove,
     onLabelAdd,
     onLabelRemove,
+    onStatusAdd,
+    onStatusRemove,
     onLabelCreate,
     onLabelUpdate,
     onLabelMove,
@@ -102,15 +104,15 @@ const Filters = React.memo(
             </span>
           ))}
         </span>
-        {/* hjkim add
+        {/* hjkim add */}
         <span className={styles.filter}>
           <LabelsPopup
             items={allStatus}
             currentIds={filterStatus.map((status) => status.id)}
             title="Status"
-            canEdit={canEdit}
-            onSelect={onLabelAdd}
-            onDeselect={onLabelRemove}
+            canEdit={false}
+            onSelect={onStatusAdd}
+            onDeselect={onStatusRemove}
             onCreate={onLabelCreate}
             onUpdate={onLabelUpdate}
             onMove={onLabelMove}
@@ -134,7 +136,7 @@ const Filters = React.memo(
             </span>
           ))}
         </span>
-        hjkim add */}
+        {/* hjkim add */}
       </>
     );
   },
@@ -154,6 +156,8 @@ Filters.propTypes = {
   onUserRemove: PropTypes.func.isRequired,
   onLabelAdd: PropTypes.func.isRequired,
   onLabelRemove: PropTypes.func.isRequired,
+  onStatusAdd: PropTypes.func.isRequired,
+  onStatusRemove: PropTypes.func.isRequired,
   onLabelCreate: PropTypes.func.isRequired,
   onLabelUpdate: PropTypes.func.isRequired,
   onLabelMove: PropTypes.func.isRequired,

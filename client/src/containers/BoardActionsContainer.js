@@ -48,6 +48,8 @@ const mapDispatchToProps = (dispatch) =>
       onUserFromFilterRemove: entryActions.removeUserFromFilterInCurrentBoard,
       onLabelToFilterAdd: entryActions.addLabelToFilterInCurrentBoard,
       onLabelFromFilterRemove: entryActions.removeLabelFromFilterInCurrentBoard,
+      onStatusToFilterAdd: entryActions.addStatusToFilterInCurrentBoard,
+      onStatusFromFilterRemove: entryActions.removeStatusFromFilterInCurrentBoard,
       onLabelCreate: entryActions.createLabelInCurrentBoard,
       onLabelUpdate: entryActions.updateLabel,
       onLabelMove: entryActions.moveLabel,

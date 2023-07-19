@@ -25,6 +25,7 @@ export default class extends BaseModel {
     }),
     filterUsers: many('User', 'filterBoards'),
     filterLabels: many('Label', 'filterBoards'),
+    filterStatus: many('Status', 'filterBoards'), // hjkim add
   };
 
   static reducer({ type, payload }, Board) {
@@ -167,6 +168,15 @@ export default class extends BaseModel {
         Board.withId(payload.boardId).filterLabels.remove(payload.id);
 
         break;
+      case ActionTypes.STATUS_TO_BOARD_FILTER_ADD:
+        Board.withId(payload.boardId).filterStatus.add(payload.id);
+
+        break;
+      case ActionTypes.STATUS_FROM_BOARD_FILTER_REMOVE:
+        Board.withId(payload.boardId).filterStatus.remove(payload.id);
+
+        break;
+
       default:
     }
   }

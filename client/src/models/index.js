@@ -10,6 +10,7 @@ import Task from './Task';
 import Attachment from './Attachment';
 import Activity from './Activity';
 import Notification from './Notification';
+import Status from './Status';
 
 export {
   User,
@@ -24,4 +25,5 @@ export {
   Attachment,
   Activity,
   Notification,
+  Status,
 };

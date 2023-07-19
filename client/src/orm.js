@@ -13,6 +13,7 @@ import {
   ProjectManager,
   Task,
   User,
+  Status,
 } from './models';
 
 const orm = new ORM({
@@ -32,6 +33,7 @@ orm.register(
   Attachment,
   Activity,
   Notification,
+  Status,
 );
 
 export default orm;

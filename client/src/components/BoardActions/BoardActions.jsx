@@ -25,6 +25,8 @@ const BoardActions = React.memo(
     onUserFromFilterRemove,
     onLabelToFilterAdd,
     onLabelFromFilterRemove,
+    onStatusToFilterAdd,
+    onStatusFromFilterRemove,
     onLabelCreate,
     onLabelUpdate,
     onLabelMove,
@@ -57,6 +59,8 @@ const BoardActions = React.memo(
               onUserRemove={onUserFromFilterRemove}
               onLabelAdd={onLabelToFilterAdd}
               onLabelRemove={onLabelFromFilterRemove}
+              onStatusAdd={onStatusToFilterAdd}
+              onStatusRemove={onStatusFromFilterRemove}
               onLabelCreate={onLabelCreate}
               onLabelUpdate={onLabelUpdate}
               onLabelMove={onLabelMove}
@@ -88,6 +92,8 @@ BoardActions.propTypes = {
   onUserFromFilterRemove: PropTypes.func.isRequired,
   onLabelToFilterAdd: PropTypes.func.isRequired,
   onLabelFromFilterRemove: PropTypes.func.isRequired,
+  onStatusToFilterAdd: PropTypes.func.isRequired,
+  onStatusFromFilterRemove: PropTypes.func.isRequired,
   onLabelCreate: PropTypes.func.isRequired,
   onLabelUpdate: PropTypes.func.isRequired,
   onLabelMove: PropTypes.func.isRequired,
