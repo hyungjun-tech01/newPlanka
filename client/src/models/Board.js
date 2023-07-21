@@ -161,6 +161,7 @@ export default class extends BaseModel {
         break;
       }
       case ActionTypes.LABEL_TO_BOARD_FILTER_ADD:
+        console.log('LABEL_TO_BOARD_FILTER_ADD');
         Board.withId(payload.boardId).filterLabels.add(payload.id);
 
         break;
@@ -169,6 +170,7 @@ export default class extends BaseModel {
 
         break;
       case ActionTypes.STATUS_TO_BOARD_FILTER_ADD:
+        console.log('STATUS_TO_BOARD_FILTER_ADD');
         Board.withId(payload.boardId).filterStatus.add(payload.id);
 
         break;

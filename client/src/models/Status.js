@@ -18,6 +18,12 @@ export default class extends BaseModel {
       case ActionTypes.CORE_INITIALIZE:
       case ActionTypes.PROJECT_MANAGER_CREATE_HANDLE:
         break;
+      case ActionTypes.LABEL_CREATE:
+      case ActionTypes.LABEL_CREATE_HANDLE:
+      case ActionTypes.LABEL_UPDATE__SUCCESS:
+      case ActionTypes.LABEL_UPDATE_HANDLE:
+        Status.upsert(payload.status);
+        break;
       default:
     }
   }

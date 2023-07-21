@@ -1,5 +1,15 @@
 import EntryActionTypes from '../constants/EntryActionTypes';
 
+// const addStatusToFilterInCurrentBoard = (id) => {
+//   console.log('EntryActionTypes.STATUS_TO_FILTER_IN_CURRENT_BOARD_ADD');
+//   return {
+//     type: EntryActionTypes.STATUS_TO_FILTER_IN_CURRENT_BOARD_ADD,
+//     payload: {
+//       id,
+//     },
+//   };
+// };
+
 const addStatusToFilterInCurrentBoard = (id) => ({
   type: EntryActionTypes.STATUS_TO_FILTER_IN_CURRENT_BOARD_ADD,
   payload: {

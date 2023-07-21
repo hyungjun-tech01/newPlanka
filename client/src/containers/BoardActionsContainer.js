@@ -16,9 +16,9 @@ const mapStateToProps = (state) => {
   const currentUserMembership = selectors.selectCurrentUserMembershipForCurrentBoard(state);
   // hjkim add status 추가 '대기','진행','완료'
   const allStatus = [
-    { id: '1', name: '대기', color: 'morning-sky', isPersisted: false },
-    { id: '2', name: '진행', color: 'berry-red', isPersisted: false },
-    { id: '3', name: '완료', color: 'pumpkin-orange', isPersisted: false },
+    { id: '1', name: '대기', color: 'morning-sky', isPersisted: true },
+    { id: '2', name: '진행', color: 'berry-red', isPersisted: true },
+    { id: '3', name: '완료', color: 'pumpkin-orange', isPersisted: true },
   ];
   const filterStatus = selectors.selectFilterStausForCurrentBoard(state);
 
